@@ -1,4 +1,4 @@
-.dashboard-container {
+.display-container {
   display: flex;
   background-color: #d3e0ea;
   padding: 20px;
@@ -39,24 +39,43 @@
   border-radius: 4px;
 }
 
-.control-section {
+.dashboard-container{
+  flex: 1;
+  background-color: #f0f4f8;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.dashboard-section {
+  flex: 1;
+  background-color: #d3e0ea;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.control-section{
   flex: 1;
   background-color: #f0f4f8;
   border-radius: 12px;
   padding: 20px;
+  margin-bottom: 7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .toggle-section {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .switch {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 28px;
+  width: 100px;   /* Increase or decrease width */
+  height: 46px;  /* Increase or decrease height */
 }
 
 .switch input {
@@ -77,8 +96,10 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 20px; width: 20px;
-  left: 4px; bottom: 4px;
+  height: 38px;
+  width: 38px;
+  left: 4px;
+  bottom: 4px;
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
@@ -89,36 +110,42 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translateX(22px);
+  transform: translateX(53px);    /* Should match the difference between switch width and slider width */
 }
 
 .toggle-label {
-  font-size: 18px;
+  font-size: 20px;   /* Increase font size */
   font-weight: bold;
 }
 
 .instruction {
   font-size: 14px;
   color: #555;
-  margin-top: 10px;
+  margin-top: 15px;
+  text-align: center;
 }
 
 .status-section {
   margin-top: 20px;
+  padding: 0px 20px;
 }
 
 .status-section h2 {
   font-size: 22px;
-  margin-bottom: 10px;
+  margin: 4vh;
+  text-align: center;
 }
 
 .status-item {
   display: flex;
+  margin: 20px;
   justify-content: space-between;
   padding: 6px 0;
+  border-bottom: 1px solid #000
 }
 
 .status-item.bottom {
-  margin-top: 20px;
+  margin-top: 30px;
+  padding: 8px 0;
   justify-content: space-between;
 }
