@@ -9,7 +9,7 @@ function HeroSection() {
       <video src="/videos/video-1.mp4" autoPlay loop muted />
       <h1>MARINE FLEET PROJECT</h1>
       <p>
-        Prototype of Autonomous marine fleet (ROV) with camera sensors to detect
+        Prototype of Autonomous marine fleet with camera sensors to detect
         cracks of the objects under water, with web app system for on/off of the
         device and display of data collected.
       </p>

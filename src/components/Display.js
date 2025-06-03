@@ -43,22 +43,18 @@ function Display() {
           <div className="status-section">
             <h2>Dashboard</h2>
             <div className="status-item">
-              <strong>Status:</strong>
+              <strong>Camera Status:</strong>
             </div>
             <div className="status-item">
               <strong>Speed:</strong> <span className="value"></span>      {/*fetch speed number */}
-              <strong>Number of Cracks:</strong> <span className="value"></span>   {/*fetch cracks number */}
             </div>
             <div className="status-item">
-              <strong>Front Distance:</strong> <span className="value"></span>   {/*fetch front distance */}
-              <strong>Left Distance:</strong> <span className="value"></span>   {/*fetch left distance */}
+              <strong>Scanning the perimeter from:</strong> <span className="value"></span>
             </div>  
             <div className="status-item">
-              <strong>Right Distance:</strong> <span className="value"></span>  {/*fetch right distance */}
-            </div>
-            <div className="status-item bottom">
-              <span><strong>Battery:</strong> 78%</span>    {/*fetch battery status */}
-              <span><strong>Signal:</strong> Strong</span>  {/*fetch signal strength */}
+              <strong>Front:</strong> <span className="value"></span>   {/*fetch front distance */}
+              <strong>Right:</strong> <span className="value"></span>   {/*fetch left distance */}
+              <strong>Left:</strong> <span className="value"></span>  {/*fetch right distance */}
             </div>
           </div>
         </div>
