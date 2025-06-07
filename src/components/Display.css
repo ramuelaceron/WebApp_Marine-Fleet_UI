@@ -3,9 +3,64 @@
   background-color: #d3e0ea;
   padding: 20px;
   gap: 20px;
-  height: 100vh;
+  height: 100%;
   box-sizing: border-box;
 }
+
+.camera-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dbeaf5;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.camera-view {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.camera-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 270px;
+  font-size: 18px;
+  color: #555;
+}
+
+.cam-label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.camera-overlay {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: red;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+}
+
+
 
 .camera-section {
   flex: 1;
@@ -51,14 +106,19 @@
   background-color: #d3e0ea;
   border-radius: 12px;
   padding: 20px;
+  min-height: 100%; /* Ensure it can grow with content */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Optional */
 }
 
 .control-section{
   flex: 1;
   background-color: #f0f4f8;
   border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 7vh;
+  padding: 40px;
+  margin-bottom: 13vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,7 +186,7 @@ input:checked + .slider:before {
 }
 
 .status-section {
-  margin-top: 20px;
+  margin-top: -100px;  /* top "Dashboard" margin */
   padding: 0px 20px;
 }
 
@@ -140,12 +200,26 @@ input:checked + .slider:before {
   display: flex;
   margin: 20px;
   justify-content: space-between;
-  padding: 6px 0;
+  padding: 20px 0;
   border-bottom: 1px solid #000
+}
+
+.status-item-title {
+  display: flex;
+  margin: 20px;
+  justify-content: space-between;
+  padding: 6px 0;
+  margin-bottom: 0;
 }
 
 .status-item.bottom {
   margin-top: 30px;
   padding: 8px 0;
   justify-content: space-between;
+}
+
+.status-item.notification {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 20px;
 }

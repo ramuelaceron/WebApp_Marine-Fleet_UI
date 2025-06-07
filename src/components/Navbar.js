@@ -52,11 +52,11 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link
-                to="/stream"
+                to="/aboutUs"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Prototype
+                About Us
               </Link>
             </li>
           </ul>

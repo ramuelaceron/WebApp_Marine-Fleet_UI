@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import "./App.css";
 import Home from "./components/pages/Home";
+import aboutUs from "./components/pages/aboutUs";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Cards from './components/pages/Stream';
 
@@ -13,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/stream" element={<Cards />} />
-          {/* <Route path="/prototype" element={<Prototype />} /> */}
+          <Route path="/aboutUs" element={<aboutUs />} />
         </Routes>
     </Router>
     </>
