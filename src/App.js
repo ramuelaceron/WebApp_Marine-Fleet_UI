@@ -1,10 +1,12 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import "./App.css";
 import Home from "./components/pages/Home";
-import aboutUs from "./components/pages/aboutUs";
+import Stream from './components/pages/Stream';
+import AboutUs from "./components/pages/aboutUs";
+import Login from "./components/pages/login";
+import SignUp from "./components/pages/aboutUs";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Cards from './components/pages/Stream';
+import "./App.css";
 
 function App() {
   return (
@@ -13,8 +15,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/stream" element={<Cards />} />
-          <Route path="/aboutUs" element={<aboutUs />} />
+          <Route path="/stream" element={<Stream />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
         </Routes>
     </Router>
     </>

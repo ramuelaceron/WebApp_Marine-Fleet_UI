@@ -1,10 +1,13 @@
 import React from 'react'
+import PersonalInfo from '../personalInfo';
+import Footer from '../Footer';
 
 const aboutUs = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <PersonalInfo />
+      <Footer />
+    </>
   )
 }
 

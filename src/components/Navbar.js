@@ -30,7 +30,7 @@ function Navbar() {
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             Autonomous Marine Fleet
-            <i className="fab fa-typo3" />
+            <i className="fas fa-ship" />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -57,6 +57,15 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 About Us
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/login"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Login/Signup
               </Link>
             </li>
           </ul>
