@@ -8,38 +8,26 @@ function Display() {
   const [right, setRight] = useState(100);
   const [notification, setNotification] = useState("");
 
-  const ESP32_IP = "192.168.18.170"; // Replace with your ESP32 IP
-  const ROBOFLOW_API_KEY = "PoT0jzGUtNb0bQOEf0Ja";
-  const MODEL_ENDPOINT = "https://detect.roboflow.com/YOUR_MODEL/1";
+  const ESP32_IP = "192.168.18.170";
 
-  // Toggle relay state via FastAPI
   const toggleSwitch = async () => {
     try {
       const res = await fetch("http://127.0.0.1:8000/toggle", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: isOn ? "off" : "on" }),
       });
 
       const data = await res.json();
       setIsOn(data.status === "on");
 
-      if (!data.esp32_online) {
-        setNotification("⚠️ ESP32 device is offline or unreachable.");
-      } else {
-        setNotification(""); // Clear if it's back
-      }
-
-      console.log("Toggle response:", data);
+      setNotification(data.esp32_online ? "" : "⚠️ ESP32 device is offline or unreachable.");
     } catch (err) {
       console.error("Failed to toggle via backend:", err);
       setNotification("⚠️ Backend communication failed.");
     }
   };
 
-  // On mount, fetch current status from FastAPI
   useEffect(() => {
     const fetchStatus = async () => {
       try {
@@ -53,7 +41,6 @@ function Display() {
     fetchStatus();
   }, []);
 
-  // Fetch sensor data periodically if power is ON
   useEffect(() => {
     if (isOn) {
       const interval = setInterval(async () => {
@@ -78,7 +65,6 @@ function Display() {
           console.error("Failed to fetch sensor data:", error);
         }
       }, 1000);
-
       return () => clearInterval(interval);
     } else {
       setFront("");
@@ -89,33 +75,32 @@ function Display() {
   }, [isOn]);
 
   return (
-    <div className="display-container">
-      {/* VIDEO DISPLAY */}
-      <div className="camera-section">
-        <div className="camera-view">
-          {isOn ? (
-            <img
-              src={`http://${ESP32_IP}`}
-              alt="ESP32-CAM Stream"
-              style={{ width: "100%", maxWidth: "480px", border: "1px solid #ccc" }}
-            />
-          ) : (
-            <div className="camera-placeholder">
-              <p>Camera is off</p>
-            </div>
-          )}
-          {notification.includes("CAM") && (
-            <div className="camera-overlay">
-              <span>{notification}</span>
-            </div>
-          )}
-          <div className="cam-label">ESP32-CAM</div>
-        </div>
-      </div>
+    <div className="display-wrapper">
+      <div className="display-container">
 
-      {/* ON & OFF Button */}
-      <div className="dashboard-container">
-        <div className="dashboard-section">
+        {/* CAMERA + BUTTON SECTION */}
+        <div className="camera-section">
+          <div className="camera-view">
+            {isOn ? (
+              <img
+                src={`http://${ESP32_IP}`}
+                alt="ESP32-CAM Stream"
+                style={{ width: "100%", maxWidth: "480px", border: "1px solid #ccc" }}
+              />
+            ) : (
+              <div className="camera-placeholder">
+                <p>Camera is off</p>
+              </div>
+            )}
+            {notification.includes("CAM") && (
+              <div className="camera-overlay">
+                <span>{notification}</span>
+              </div>
+            )}
+            <div className="cam-label">ESP32-CAM</div>
+          </div>
+
+          {/* CONTROL SECTION */}
           <div className="control-section">
             <div className="toggle-section">
               <label className="switch">
@@ -124,40 +109,41 @@ function Display() {
               </label>
               <span className="toggle-label">{isOn ? "ON" : "OFF"}</span>
             </div>
-            <p className="instruction">
-              Turn the boat ON or OFF. When powered on, the boat begins to scan autonomously.
-            </p>
-            {notification && (
+
+            {/* Display either instruction or notification */}
+            {!notification ? (
+              <p className="instruction">
+                Turn the boat ON or OFF. When powered on, the boat begins to scan autonomously.
+              </p>
+            ) : (
               <div className="status-item notification">
                 🚨 {notification}
               </div>
             )}
           </div>
+        </div>
 
-          {/* DASHBOARD DISPLAY */}
-          <div className="status-section">
-            <h2>Dashboard</h2>
-            <div className="status-item">
-              <strong>Camera Status:</strong>{" "}
-              <span className="value">{isOn ? "Active" : "Inactive"}</span>
-            </div>
-            <div className="status-item">
-              <strong>Speed:</strong> <span className="value">--</span>
-            </div>
-            <div className="status-item-title">
-              <strong>Scanning the perimeter from:</strong>
-            </div>
-            <div className="status-item">
-              <strong>Front:</strong> <span className="value">{front !== "" ? `${front}m` : "--"}</span>
-              <strong>Right:</strong> <span className="value">{right !== "" ? `${right}m` : "--"}</span>
-              <strong>Left:</strong> <span className="value">{left !== "" ? `${left}m` : "--"}</span>
-            </div>
-
-            {notification && (
-              <div className="status-item notification">
-                🚨 {notification}
+        {/* DASHBOARD SECTION */}
+        <div className="dashboard-container">
+          <div className="dashboard-section">
+            <div className="status-section">
+              <h2>Dashboard</h2>
+              <div className="status-item">
+                <strong>Camera Status:</strong>{" "}
+                <span className="value">{isOn ? "Active" : "Inactive"}</span>
               </div>
-            )}
+              <div className="status-item">
+                <strong>Speed:</strong> <span className="value">--</span>
+              </div>
+              <div className="status-item-title">
+                <strong>Scanning the perimeter from:</strong>
+              </div>
+              <div className="status-item">
+                <strong>Front:</strong> <span className="value">{front !== "" ? `${front}m` : "--"}</span>
+                <strong>Right:</strong> <span className="value">{right !== "" ? `${right}m` : "--"}</span>
+                <strong>Left:</strong> <span className="value">{left !== "" ? `${left}m` : "--"}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
