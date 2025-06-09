@@ -244,3 +244,96 @@ input:checked + .slider:before {
   text-align: center;
   border: none;
 }
+
+
+/* Responsive styles for mobile devices */
+@media screen and (max-width: 480px) {
+  .display-wrapper {
+    padding: 10px;
+    margin-top: 30px; /* Adjust based on your footer height */
+  }
+
+  .display-container {
+    flex-direction: column;
+    flex: 1;
+    padding-bottom: 60px; /* Adjust based on your footer height */
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .page-container, .display-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .camera-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .camera-view img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .camera-placeholder {
+    height: 200px;
+    font-size: 14px;
+  }
+
+  .cam-label {
+    font-size: 12px;
+  }
+
+  .toggle-section {
+    gap: 6px;
+  }
+
+  .toggle-label {
+    font-size: 14px;
+  }
+
+  .switch {
+    width: 50px;
+    height: 28px;
+  }
+
+  .slider:before {
+    height: 20px;
+    width: 20px;
+  }
+
+  .instruction,
+  .notification {
+    font-size: 13px;
+    text-align: center;
+    padding: 0 5px;
+  }
+
+  .dashboard-container {
+    margin-bottom: 30px; /* ensures it's not obscured by the footer */
+  }
+
+  .footer-container {
+    position: relative;
+  }
+
+  .dashboard-section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .status-item,
+  .status-item-title {
+    font-size: 13px;
+    margin: 5px 0;
+  }
+
+  .status-item .value {
+    font-size: 13px;
+  }
+}
+

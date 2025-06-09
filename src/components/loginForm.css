@@ -93,3 +93,43 @@
   cursor: pointer;
   margin-left: 5px;
 }
+
+/* Responsive design for mobile screens */
+@media screen and (max-width: 480px) {
+  .login-page-wrapper{
+    margin-bottom: 30%;
+    height: fit-content;
+  }
+  
+  .login-container {
+    padding: 25px 20px;
+    max-width: 80%;
+  }
+
+  .login-title {
+    font-size: 22px;
+  }
+
+  .tab {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .login-input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .login-submit {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .forgot-password {
+    font-size: 13px;
+  }
+
+  .login-footer {
+    font-size: 13px;
+  }
+}

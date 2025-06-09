@@ -69,3 +69,51 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+
+/* Responsive styles for mobile devices */
+@media screen and (max-width: 480px) {
+  .about-container {
+    padding: 30px 10px;
+  }
+
+  .about-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  /* Use CSS Grid with 3 equal columns */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+  }
+
+  .profile-card {
+    width: 100%; /* take full width of grid column */
+    max-width: 180px;
+    height: 300px;
+    padding: 10px;
+  }
+
+  .profile-image {
+    height: 110px;
+    margin-bottom: 10px;
+  }
+
+  .profile-name {
+    font-size: 10px;
+    margin-top: 0;
+    margin-bottom: 2px;
+  }
+
+  .profile-role {
+    font-size: 9px;
+    margin: 2px 0 1px 0;
+  }
+
+  .profile-desc {
+    font-size: 9px;
+  }
+}

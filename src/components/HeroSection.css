@@ -45,32 +45,6 @@
   margin-left: 4px;
 }
 
-@media screen and (max-width: 960px) {
-  .hero-container > h1 {
-    font-size: 70px;
-    margin-top: -150px;
-  }
-
-  .hero-container > p {
-    font-size: 28px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hero-container > h1 {
-    font-size: 50px;
-    margin-top: -100px;
-  }
-
-  .hero-container > p {
-    font-size: 24px;
-  }
-
-  .btn {
-    width: 100%;
-  }
-}
-
 /* PROTOTYPE DETAILS SECTION */
 .container {
   display: flex;
@@ -200,4 +174,79 @@
   box-shadow: 0 0 10px #00d4ff;
   margin: 0 auto;
   border-radius: 2px;
+}
+
+@media screen and (max-width: 480px) {
+  .hero-container > h1 {
+    font-size: 45px;
+    margin-top: -180px;
+  }
+
+  .hero-container > p {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    text-align: center;
+    margin-top: 10px;
+    padding: 0 5px;
+  }
+
+  .hero-btns {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+    gap: 1px;
+  }
+
+  .hero-btns .btn {
+    font-size: 14px;
+    padding: 10px 18px;
+    min-width: 100px;
+    flex: 1 1 auto;
+  }
+
+  .info-section {
+    padding: 0 0px;
+    gap: 20px;
+  }
+
+  .description,
+  .materials {
+    font-size: 14px;
+    padding: 0 6px;
+  }
+
+   .info-section h4,
+  .description h4,
+  .materials h4 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .info-section p,
+  .info-section ul {
+    font-size: 14px;
+    padding: 0 1px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+   .views-grid {
+    margin-top: -15px;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 8px;
+  }
+  
+  .label {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+    margin-left: -5px;
+  }
+
+  .section-divider {
+    margin-top: -140px;
+    margin-bottom: -20px;
+    width: 90%;
+    height: 2px;
+  }
+
 }
